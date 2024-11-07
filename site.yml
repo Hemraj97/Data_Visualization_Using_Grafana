@@ -1,0 +1,8 @@
+- name: Install Prometheus and Grafana using Docker
+  hosts: prometheus_grafana_servers
+  gather_facts: no
+  become: true
+  roles:    
+    - role: setup            # Docker installation tasks
+    - role: prometheus       # Prometheus setup and configuration
+    - role: grafana          # Grafana setup

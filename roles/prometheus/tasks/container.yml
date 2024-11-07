@@ -1,0 +1,13 @@
+---
+- name: Pull Prometheus Docker image
+  community.docker.docker_image:
+    name: "prom/prometheus:latest"
+    source: pull
+
+- name: Run Prometheus container
+  community.docker.docker_container:
+    name: "prometheus"
+    image: "prom/prometheus:latest"
+    ports:
+      - "9090:9090"
+    restart_policy: always
